@@ -61,6 +61,7 @@ main {
     grid-template-columns: repeat(2, 1fr); /* Dos columnas */
     gap: 2rem;
     margin: 0; /* Sin márgenes para ocupar todo el espacio */
+    justify-items: center; /* Centra las fichas horizontalmente */
 }
 
 article.receta {
@@ -72,16 +73,18 @@ article.receta {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: auto; /* Ajustar la altura automáticamente */
     transition: transform 0.3s ease; /* Transición suave */
     cursor: pointer;
+    text-align: center; /* Centrar texto */
 }
 
 article.receta img {
-    width: 100%;
+    width: 80%; /* Tamaño más pequeño para la imagen */
     height: auto;
     object-fit: cover; /* Ajusta la imagen */
     border-radius: 8px;
+    margin-bottom: 1rem; /* Espacio debajo de la imagen */
 }
 
 article.receta:hover {
@@ -131,17 +134,12 @@ button#regresar {
     background-color: #ff6961; /* Color para el botón de regresar */
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
     border-radius: 5px;
+    padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button#regresar:hover {
-    background-color: #c44d4e; /* Color más oscuro al pasar el mouse */
-}
-
-#modal-contenido img {
-    max-width: 80%; /* Limita el tamaño de la imagen en el modal */
-    height: auto; /* Mantiene la proporción */
+    background-color: #e60000; /* Color más oscuro al pasar el mouse */
 }

@@ -4,74 +4,144 @@
     <meta charset="UTF-8">
     <title>Nutrikids Tamayo</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos generales */
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Fondo claro para mejorar la visibilidad */
+        }
+
+        header {
+            background-color: #4caf50; /* Color de fondo para el header */
+            padding: 20px;
+            color: white;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #0d00ca; /* Cambia el color de fondo al pasar el mouse */
+        }
+
+        .recetas-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .receta {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            width: calc(50% - 40px); /* Dos recetas por fila y espacio entre ellas */
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .receta:hover {
+            transform: scale(1.05);
+        }
+
+        .receta a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            height: 100%;
+        }
+
+        #comentarios {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 300px;
+            z-index: 1000;
+        }
+
+        #comentarios h3 {
+            margin: 0 0 10px;
+        }
+
+        #comentarios-list {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div style="display: flex; align-items: center;">
+        <div style="display: flex; align-items: center; justify-content: center;">
             <img src="logo.png" alt="Nutrikids Tamayo" id="logo">
             <h1 id="title">Nutrikids Tamayo</h1>
         </div>
         <nav>
-            <ul>
-                <li><a href="#recetas-comunes">Recomendados</a></li>
-                <li><button id="menu-diario">¡Menú Diario!</button></li>
-                <li><button id="propiedades">Propiedades</button></li>
-            </ul>
+            <a href="menu_diario.html">Menú Diario</a>
+            <a href="propiedades.html">Propiedades</a>
         </nav>
     </header>
 
-    <main id="main-content">
-        <section id="recetas-comunes">
-            <h2>Recomendados</h2>
-            <div class="recetas-container">
-                <article class="receta" onclick="window.location.href='queque_nabo.html'">
-                    <img src="queque_nabo.jpg" alt="Queque de Nabo">
-                    <h3>Queque de Nabo</h3>
-                    <p>Una receta deliciosa y saludable hecha con nabos frescos.</p>
-                    <p>Tiempo estimado: 45 minutos</p>
-                </article>
-                <article class="receta" onclick="window.location.href='galletas_avena.html'">
-                    <img src="galletas_avena.jpg" alt="Galletas de Avena">
-                    <h3>Galletas de Avena</h3>
-                    <p>Galletas crujientes y saludables con un toque de avena.</p>
-                    <p>Tiempo estimado: 30 minutos</p>
-                </article>
-            </div>
-        </section>
+    <main>
+        <h2>Recetas Destacadas</h2>
+        <div class="recetas-container">
+            <article class="receta" onclick="location.href='galletas_avena.html'">
+                <h3>Galletas de avena</h3>
+                <img src="galletas_avena.jpg" alt="Galletas de avena">
+                <p>Deliciosas galletas saludables.</p>
+            </article>
+            <article class="receta" onclick="location.href='queque_nabo.html'">
+                <h3>Queque de nabo</h3>
+                <img src="queque_nabo.jpg" alt="Queque de nabo">
+                <p>Un postre lleno de sabor.</p>
+            </article>
+            <!-- Aquí puedes añadir más recetas -->
+        </div>
 
-        <!-- Sección para mostrar el Menú Diario -->
-        <section id="menuDiario">
-            <!-- Aquí se mostrará el menú diario -->
-        </section>
-
-        <!-- Sección para mostrar las Propiedades de las Verduras -->
-        <section id="propiedades">
-            <!-- Aquí se mostrarán las propiedades de las verduras -->
-        </section>
-    </main>
-
-    <footer>
-        <section id="reseñas">
-            <h2>Reseñas</h2>
-            <form>
-                <label for="comentario">Deja tu comentario:</label>
-                <textarea id="comentario" rows="4" cols="50"></textarea>
-                <div class="rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
+        <!-- Área de Comentarios -->
+        <div id="comentarios">
+            <h3>Comentarios</h3>
+            <form id="form-comentario">
+                <textarea id="comentario-input" placeholder="Escribe tu comentario aquí..." rows="3" required></textarea>
                 <button type="submit">Enviar</button>
             </form>
-        </section>
-    </footer>
-<!-- Modal para mostrar detalles de las recetas -->
-<div id="modal" class="modal">
-    <span class="close" onclick="cerrarModal()">×</span>
-    <div id="modal-contenido"></div>
-</div>
-    <script src="script.js"></script>
+            <div id="comentarios-list"></div>
+        </div>
+    </main>
+
+    <script>
+        // Manejar el envío del formulario de comentarios
+        document.getElementById('form-comentario').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+            const comentario = document.getElementById('comentario-input').value; // Obtener el comentario ingresado
+            const comentariosList = document.getElementById('comentarios-list'); // Obtener el contenedor de comentarios
+            
+            // Crear un nuevo elemento de comentario
+            const nuevoComentario = document.createElement('p');
+            nuevoComentario.textContent = comentario; // Establecer el texto del comentario
+            
+            // Agregar el nuevo comentario al contenedor
+            comentariosList.appendChild(nuevoComentario);
+            // Limpiar el campo de entrada
+            document.getElementById('comentario-input').value = '';
+        });
+    </script>
 </body>
 </html>
