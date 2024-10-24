@@ -1,0 +1,147 @@
+body { 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e6f2ff; /* Azul suave */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00509e; /* Azul oscuro */
+    padding: 1rem;
+}
+
+#logo {
+    width: 100px;
+}
+
+#title {
+    color: white;
+    font-size: 2.5rem; /* Tamaño grande para resaltar */
+    font-weight: bold;
+    margin: 0;
+    padding-left: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a, nav ul li button {
+    text-decoration: none;
+    color: white;
+    background-color: #339af0; /* Azul claro */
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+nav ul li button:hover, nav ul li a:hover {
+    background-color: #00509e; /* Azul oscuro */
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+}
+
+main {
+    padding: 2rem;
+}
+
+.recetas-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 2rem;
+    margin: 0; /* Sin márgenes para ocupar todo el espacio */
+}
+
+article.receta {
+    border: 1px solid #00509e;
+    padding: 1.2rem;
+    border-radius: 8px;
+    background-color: #f0f8ff; /* Azul muy claro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transition: transform 0.3s ease; /* Transición suave */
+    cursor: pointer;
+}
+
+article.receta img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ajusta la imagen */
+    border-radius: 8px;
+}
+
+article.receta:hover {
+    transform: translateY(-10px); /* Desplazamiento hacia arriba al pasar el mouse */
+}
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 2rem;
+    color: #00509e;
+}
+
+footer {
+    background-color: #f8f8f8;
+    padding: 1rem;
+    text-align: center;
+}
+
+.rating {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 2rem;
+}
+
+.star {
+    cursor: pointer;
+    color: gray;
+}
+
+.star.selected {
+    color: #FFD700; /* Color dorado */
+}
+
+button#regresar {
+    background-color: #ff6961; /* Color para el botón de regresar */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#regresar:hover {
+    background-color: #c44d4e; /* Color más oscuro al pasar el mouse */
+}
+
+#modal-contenido img {
+    max-width: 80%; /* Limita el tamaño de la imagen en el modal */
+    height: auto; /* Mantiene la proporción */
+}

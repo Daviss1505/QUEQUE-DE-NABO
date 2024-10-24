@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Diario - Nutrikids Tamayo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="logo.png" alt="Nutrikids Tamayo" id="logo">
+            <h1 id="title">Menú Diario</h1>
+        </div>
+        <button id="regresar">Regresar</button>
+    </header>
+
+    <main>
+        <div class="recetas-container" id="menu-diario-recetas">
+            <article class="receta">
+                <h3>Lunes</h3>
+                <p>Lentejas con Arroz</p>
+                <p>Plato lleno de proteínas y fibra.</p>
+            </article>
+            <article class="receta">
+                <h3>Martes</h3>
+                <p>Ensalada de Quinoa</p>
+                <p>Saludable y rica en vitamina C.</p>
+            </article>
+            <article class="receta">
+                <h3>Miércoles</h3>
+                <p>Pollo a la Parrilla</p>
+                <p>Fuente excelente de proteínas.</p>
+            </article>
+            <article class="receta">
+                <h3>Jueves</h3>
+                <p>Tacos de Pescado</p>
+                <p>Deliciosos y ricos en omega 3.</p>
+            </article>
+            <article class="receta">
+                <h3>Viernes</h3>
+                <p>Pasta Integral</p>
+                <p>Buena opción con carbohidratos complejos.</p>
+            </article>
+            <article class="receta">
+                <h3>Sábado</h3>
+                <p>Sopa de Verduras</p>
+                <p>Repleta de vitaminas y minerales.</p>
+            </article>
+            <article class="receta">
+                <h3>Domingo</h3>
+                <p>Sándwich de Pavo</p>
+                <p>Rico en proteínas y vitamina B12.</p>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('regresar').addEventListener('click', function() {
+            window.history.back();
+        });
+    </script>
+</body>
+</html>

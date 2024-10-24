@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Propiedades - Nutrikids Tamayo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="logo.png" alt="Nutrikids Tamayo" id="logo">
+            <h1 id="title">Propiedades de Verduras</h1>
+        </div>
+        <button id="regresar">Regresar</button>
+    </header>
+
+    <main>
+        <div class="recetas-container">
+            <article class="receta">
+                <h3>Espinaca</h3>
+                <p>Rica en hierro y vitaminas A y C.</p>
+            </article>
+            <article class="receta">
+                <h3>Brócoli</h3>
+                <p>Una excelente fuente de fibra y vitamina K.</p>
+            </article>
+            <article class="receta">
+                <h3>Zanahoria</h3>
+                <p>Alta en vitamina A, buena para la vista.</p>
+            </article>
+            <article class="receta">
+                <h3>Pimiento</h3>
+                <p>Rico en antioxidantes y vitaminas.</p>
+            </article>
+            <article class="receta">
+                <h3>Coliflor</h3>
+                <p>Fuente de vitamina C y antioxidantes.</p>
+            </article>
+            <article class="receta">
+                <h3>Lechuga</h3>
+                <p>Hidratante y rica en fibra.</p>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('regresar').addEventListener('click', function() {
+            window.history.back();
+        });
+    </script>
+</body>
+</html>

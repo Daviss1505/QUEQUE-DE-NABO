@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutrikids Tamayo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="logo.png" alt="Nutrikids Tamayo" id="logo">
+            <h1 id="title">Nutrikids Tamayo</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#recetas-comunes">Recomendados</a></li>
+                <li><button id="menu-diario">¡Menú Diario!</button></li>
+                <li><button id="propiedades">Propiedades</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="recetas-comunes">
+            <h2>Recomendados</h2>
+            <div class="recetas-container">
+                <article class="receta" onclick="window.location.href='queque_nabo.html'">
+                    <img src="queque_nabo.jpg" alt="Queque de Nabo">
+                    <h3>Queque de Nabo</h3>
+                    <p>Una receta deliciosa y saludable hecha con nabos frescos.</p>
+                    <p>Tiempo estimado: 45 minutos</p>
+                </article>
+                <article class="receta" onclick="window.location.href='galletas_avena.html'">
+                    <img src="galletas_avena.jpg" alt="Galletas de Avena">
+                    <h3>Galletas de Avena</h3>
+                    <p>Galletas crujientes y saludables con un toque de avena.</p>
+                    <p>Tiempo estimado: 30 minutos</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección para mostrar el Menú Diario -->
+        <section id="menuDiario">
+            <!-- Aquí se mostrará el menú diario -->
+        </section>
+
+        <!-- Sección para mostrar las Propiedades de las Verduras -->
+        <section id="propiedades">
+            <!-- Aquí se mostrarán las propiedades de las verduras -->
+        </section>
+    </main>
+
+    <footer>
+        <section id="reseñas">
+            <h2>Reseñas</h2>
+            <form>
+                <label for="comentario">Deja tu comentario:</label>
+                <textarea id="comentario" rows="4" cols="50"></textarea>
+                <div class="rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </footer>
+<!-- Modal para mostrar detalles de las recetas -->
+<div id="modal" class="modal">
+    <span class="close" onclick="cerrarModal()">×</span>
+    <div id="modal-contenido"></div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
