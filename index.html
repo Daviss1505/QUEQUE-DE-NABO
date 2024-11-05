@@ -4,88 +4,7 @@
     <meta charset="UTF-8">
     <title>Nutrikids Tamayo</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Estilos generales */
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff; /* Fondo claro para mejorar la visibilidad */
-        }
-
-        header {
-            background-color: #0b019b; /* Color de fondo para el header */
-            padding: 20px;
-            color: white;
-        }
-
-        nav {
-            margin: 20px 0;
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #0d00ca; /* Cambia el color de fondo al pasar el mouse */
-        }
-
-        .recetas-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 20px;
-        }
-
-        .receta {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 10px;
-            width: calc(50% - 40px); /* Dos recetas por fila y espacio entre ellas */
-            background-color: rgba(255, 255, 255, 0.9);
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-
-        .receta:hover {
-            transform: scale(1.05);
-        }
-
-        .receta a {
-            text-decoration: none;
-            color: black;
-            display: block;
-            height: 100%;
-        }
-
-        #comentarios {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            max-width: 300px;
-            z-index: 1000;
-        }
-
-        #comentarios h3 {
-            margin: 0 0 10px;
-        }
-
-        #comentarios-list {
-            max-height: 150px;
-            overflow-y: auto;
-        }
-    </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -102,45 +21,89 @@
     <main>
         <h2>Recetas Destacadas</h2>
         <div class="recetas-container">
-            <article class="receta" onclick="location.href='galletas_avena.html'">
-                <h3>Galletas de avena</h3>
-                <img src="galletas_avena.jpg" alt="Galletas de avena">
-                <p>Deliciosas galletas saludables.</p>
-            </article>
             <article class="receta" onclick="location.href='queque_nabo.html'">
-                <h3>Queque de nabo</h3>
-                <img src="queque_nabo.jpg" alt="Queque de nabo">
-                <p>Un postre lleno de sabor.</p>
+                <h3>Queque de Nabo</h3>
+                <img src="queque_nabo.jpg" alt="Queque de Nabo">
+                <p>Un postre lleno de sabor y nutrición.</p>
             </article>
-            <!-- Aquí puedes añadir más recetas -->
+            <article class="receta" onclick="location.href='te_calmante.html'">
+                <h3>Infusión de Té Calmante</h3>
+                <img src="te_calmante.jpg" alt="Infusión de Té Calmante">
+                <p>Una bebida relajante perfecta.</p>
+            </article>
+            <article class="receta" onclick="location.href='ensalada_fresas.html'">
+                <h3>Ensalada de Fresas y Espinacas</h3>
+                <img src="ensalada_fresas.jpg" alt="Ensalada de Fresas y Espinacas">
+                <p>Una ensalada refrescante y nutritiva.</p>
+            </article>
+            <article class="receta" onclick="location.href='muffins_avena.html'">
+                <h3>Muffins de Avena y Plátano</h3>
+                <img src="muffins_avena.jpg" alt="Muffins de Avena y Plátano">
+                <p>Un snack perfecto para la familia.</p>
+            </article>
         </div>
 
-        <!-- Área de Comentarios -->
-        <div id="comentarios">
+        <!-- Sistema de comentarios -->
+        <section id="comentarios-section">
             <h3>Comentarios</h3>
-            <form id="form-comentario">
+            <form id="comentarios-form">
                 <textarea id="comentario-input" placeholder="Escribe tu comentario aquí..." rows="3" required></textarea>
                 <button type="submit">Enviar</button>
             </form>
             <div id="comentarios-list"></div>
-        </div>
+        </section>
+
+        <!-- Sistema de puntuación -->
+        <section id="rating-section">
+            <h3>Puntuación</h3>
+            <div class="rating" id="rating">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+            <p id="rating-result">Puntuación actual: 0/5</p>
+        </section>
     </main>
 
     <script>
         // Manejar el envío del formulario de comentarios
-        document.getElementById('form-comentario').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
-            const comentario = document.getElementById('comentario-input').value; // Obtener el comentario ingresado
-            const comentariosList = document.getElementById('comentarios-list'); // Obtener el contenedor de comentarios
-            
+        document.getElementById('comentarios-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const comentario = document.getElementById('comentario-input').value;
+            const comentariosList = document.getElementById('comentarios-list');
+
             // Crear un nuevo elemento de comentario
             const nuevoComentario = document.createElement('p');
-            nuevoComentario.textContent = comentario; // Establecer el texto del comentario
-            
+            nuevoComentario.textContent = comentario;
+
             // Agregar el nuevo comentario al contenedor
             comentariosList.appendChild(nuevoComentario);
+
             // Limpiar el campo de entrada
             document.getElementById('comentario-input').value = '';
+        });
+
+        // Manejar la puntuación por estrellas
+        const stars = document.querySelectorAll('.star');
+        const ratingResult = document.getElementById('rating-result');
+
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = this.getAttribute('data-value');
+
+                // Resetear las clases de las estrellas
+                stars.forEach(s => s.classList.remove('selected'));
+
+                // Marcar las estrellas seleccionadas
+                for (let i = 0; i < value; i++) {
+                    stars[i].classList.add('selected');
+                }
+
+                // Mostrar el resultado de la puntuación
+                ratingResult.textContent = `Puntuación actual: ${value}/5`;
+            });
         });
     </script>
 </body>

@@ -4,27 +4,6 @@
     <meta charset="UTF-8">
     <title>Menú Diario - Nutrikids Tamayo</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Estilos para el área de comentarios */
-        #comentarios {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            max-width: 300px;
-            z-index: 1000;
-        }
-        #comentarios h3 {
-            margin: 0 0 10px;
-        }
-        #comentarios-list {
-            max-height: 150px;
-            overflow-y: auto;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -32,119 +11,51 @@
             <img src="logo.png" alt="Nutrikids Tamayo" id="logo">
             <h1 id="title">Menú Diario</h1>
         </div>
-        <button id="regresar">Regresar</button>
     </header>
 
     <main>
-        <div class="recetas-container" id="menu-diario-recetas">
-            <article class="receta">
-                <h3>Lunes: Avena cocida con plátano y nueces</h3>
-                <img src="avena_banana_nueces.jpg" alt="Avena cocida con plátano y nueces">
-                <p>Un desayuno nutritivo y delicioso.</p>
-            </article>
-            <article class="receta">
-                <h3>Martes: Té de manzanilla</h3>
-                <img src="te_manzanilla.jpg" alt="Té de manzanilla">
-                <p>Ideal para relajarte y calmar el estómago.</p>
-            </article>
-            <article class="receta">
-                <h3>Miércoles: Ensalada de espinacas con aguacate, garbanzos, tomate y aderezo de yogur</h3>
-                <img src="ensalada_espinacas.jpg" alt="Ensalada de espinacas">
-                <p>Plato lleno de proteínas y vitaminas.</p>
-            </article>
-            <article class="receta">
-                <h3>Jueves: Quinoa</h3>
-                <img src="quinoa.jpg" alt="Quinoa">
-                <p>Rica en proteínas y fibra.</p>
-            </article>
-            <article class="receta">
-                <h3>Viernes: Yogur natural con miel y frutas del bosque</h3>
-                <img src="yogur_frutas.jpg" alt="Yogur natural con miel y frutas del bosque">
-                <p>Postre saludable y refrescante.</p>
-            </article>
-            <article class="receta">
-                <h3>Sábado: Salmón al horno con hierbas</h3>
-                <img src="salmón_horno.jpg" alt="Salmón al horno">
-                <p>Rico en omega-3 y delicioso.</p>
-            </article>
-            <article class="receta">
-                <h3>Domingo: Brócoli al vapor y puré de batata</h3>
-                <img src="brocoli_pure_batata.jpg" alt="Brócoli al vapor y puré de batata">
-                <p>Comida ligera y saludable.</p>
-            </article>
-        </div>
+        <button onclick="window.history.back()">Regresar</button>
 
-        <div class="recetas-container" id="menu-diario-recetas-semana-siguiente">
-            <h2>Recetas de la próxima semana</h2>
-            <article class="receta">
-                <h3>Lunes: Batido de espinacas, plátano y leche de almendras</h3>
-                <img src="batido_espinacas.jpg" alt="Batido de espinacas">
-                <p>Un batido refrescante y nutritivo.</p>
-            </article>
-            <article class="receta">
-                <h3>Martes: Tostada integral con aguacate</h3>
-                <img src="tostada_aguacate.jpg" alt="Tostada integral con aguacate">
-                <p>Perfecta para un desayuno saludable.</p>
-            </article>
-            <article class="receta">
-                <h3>Miércoles: Sopa de lentejas con zanahorias y apio</h3>
-                <img src="sopa_lentejas.jpg" alt="Sopa de lentejas">
-                <p>Reconfortante y rica en nutrientes.</p>
-            </article>
-            <article class="receta">
-                <h3>Jueves: Pan integral</h3>
-                <img src="pan_integral.jpg" alt="Pan integral">
-                <p>Ideal para acompañar tus comidas.</p>
-            </article>
-            <article class="receta">
-                <h3>Viernes: Zanahorias baby con hummus</h3>
-                <img src="zanahorias_hummus.jpg" alt="Zanahorias baby con hummus">
-                <p>Un snack saludable y delicioso.</p>
-            </article>
-            <article class="receta">
-                <h3>Sábado: Pechuga de pollo a la parrilla con especias</h3>
-                <img src="pollo_parrilla.jpg" alt="Pechuga de pollo a la parrilla">
-                <p>Plato lleno de proteínas.</p>
-            </article>
-            <article class="receta">
-                <h3>Domingo: Verduras asadas (calabacín, pimientos, cebolla)</h3>
-                <img src="verduras_asadas.jpg" alt="Verduras asadas">
-                <p>Deliciosas y llenas de sabor.</p>
-            </article>
-        </div>
-
-        <!-- Área de Comentarios -->
-        <div id="comentarios">
-            <h3>Comentarios</h3>
-            <form id="form-comentario">
-                <textarea id="comentario-input" placeholder="Escribe tu comentario aquí..." rows="3" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-            <div id="comentarios-list"></div>
-        </div>
+        <!-- Día 1 -->
+        <section>
+            <h2>Día 1</h2>
+            <div class="dia">
+                <h3>Desayuno</h3>
+                <div class="imagenes-receta">
+                    <img src="avena_banana_nueces.jpg" alt="Avena con plátano y nueces">
+                    <img src="te_manzanilla.jpg" alt="Té de manzanilla">
+                </div>
+                <p>Avena cocida con plátano y nueces</p>
+                <p>Té de manzanilla</p>
+            </div>
+            <div class="dia">
+                <h3>Almuerzo</h3>
+                <div class="imagenes-receta">
+                    <img src="ensalada_espinacas.jpg" alt="Ensalada de espinacas">
+                    <img src="quinoa.jpg" alt="Quinoa">
+                </div>
+                <p>Ensalada de espinacas con aguacate, garbanzos, tomate y aderezo de yogur</p>
+                <p>Quinoa como guarnición</p>
+            </div>
+            <div class="dia">
+                <h3>Merienda</h3>
+                <div class="imagenes-receta">
+                    <img src="yogur_frutas.jpg" alt="Yogur con miel y frutas">
+                </div>
+                <p>Yogur natural con miel y frutas del bosque</p>
+            </div>
+            <div class="dia">
+                <h3>Cena</h3>
+                <div class="imagenes-receta">
+                    <img src="salmón_horno.jpg" alt="Salmón al horno">
+                    <img src="brocoli_pure_batata.jpg" alt="Brócoli al vapor y puré de batata">
+                </div>
+                <p>Salmón al horno con hierbas</p>
+                <p>Brócoli al vapor y puré de batata</p>
+            </div>
+        </section>
+        
+        <!-- Añadir más secciones para los otros días -->
     </main>
-
-    <script>
-        // Regresar a la página anterior
-        document.getElementById('regresar').addEventListener('click', function() {
-            window.history.back();
-        });
-
-        // Manejar el envío del formulario de comentarios
-        document.getElementById('form-comentario').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
-            const comentario = document.getElementById('comentario-input').value; // Obtener el comentario ingresado
-            const comentariosList = document.getElementById('comentarios-list'); // Obtener el contenedor de comentarios
-            
-            // Crear un nuevo elemento de comentario
-            const nuevoComentario = document.createElement('p');
-            nuevoComentario.textContent = comentario; // Establecer el texto del comentario
-            
-            // Agregar el nuevo comentario al contenedor
-            comentariosList.appendChild(nuevoComentario);
-            // Limpiar el campo de entrada
-            document.getElementById('comentario-input').value = '';
-        });
-    </script>
 </body>
 </html>

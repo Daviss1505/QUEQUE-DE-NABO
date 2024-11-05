@@ -1,49 +1,42 @@
-// script.js
+function mostrarDetalle(receta) {
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modal-content");
 
-// Función para cerrar el modal
-function cerrarModal() {
-    document.getElementById('modal').style.display = 'none';
-}
+    let detalles = "";
 
-// Función para abrir el modal y mostrar la receta
-function abrirModal(receta) {
-    const modal = document.getElementById('modal');
-    const modalContent = document.getElementById('modal-content');
-
-    modalContent.innerHTML = `
-        <span class="close" onclick="cerrarModal()">&times;</span>
-        <h2>${receta.titulo}</h2>
-        <img src="${receta.imagen}" alt="${receta.titulo}" style="width:100%; height:auto;">
-        <p>${receta.descripcion}</p>
-    `;
-    
-    modal.style.display = 'block'; // Mostrar modal
-}
-
-// Agregar eventos de clic a cada ficha de receta
-document.querySelectorAll('.receta').forEach(receta => {
-    receta.addEventListener('click', () => {
-        const titulo = receta.querySelector('h3').textContent;
-        const imagen = receta.querySelector('img').src;
-        const descripcion = receta.getAttribute('data-descripcion');
-        
-        abrirModal({ titulo, imagen, descripcion });
-    });
-});
-
-// Función para cerrar el modal al hacer clic en el fondo
-window.onclick = function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target == modal) {
-        cerrarModal();
+    if (receta === "queque") {
+        detalles = `
+            <h2>Queque de Nabo</h2>
+            <p>Un queque delicioso y nutritivo hecho con nabo fresco.</p>
+            <h3>Ingredientes</h3>
+            <ul>
+                <li>1 taza de nabo rallado</li>
+                <li>1 taza de harina</li>
+                <li>2 huevos</li>
+                <li>1/2 taza de azúcar</li>
+            </ul>
+            <h3>Preparación</h3>
+            <p>Mezclar ingredientes y hornear a 180°C por 30 minutos.</p>
+        `;
+    } else if (receta === "galletas") {
+        detalles = `
+            <h2>Galletas de Avena</h2>
+            <p>Galletas crujientes y saludables con avena.</p>
+            <h3>Ingredientes</h3>
+            <ul>
+                <li>1 taza de avena</li>
+                <li>1/2 taza de azúcar</li>
+                <li>1 huevo</li>
+            </ul>
+            <h3>Preparación</h3>
+            <p>Mezclar y hornear a 180°C por 20 minutos.</p>
+        `;
     }
+
+    modalContent.innerHTML = detalles;
+    modal.style.display = "block";
 }
 
-// Event listeners para los botones de navegación
-document.getElementById('menu-diario').addEventListener('click', function() {
-    window.location.href = 'menu_diario.html';
-});
-
-document.getElementById('propiedades').addEventListener('click', function() {
-    window.location.href = 'propiedades.html';
-});
+function cerrarModal() {
+    document.getElementById("modal").style.display = "none";
+}

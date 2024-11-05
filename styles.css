@@ -1,10 +1,13 @@
-body { 
+/* Estilos generales */
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e6f2ff; /* Azul suave */
+    background-color: #e6f2ff; /* Fondo azul suave */
+    text-align: center;
 }
 
+/* Encabezado */
 header {
     display: flex;
     justify-content: space-between;
@@ -19,78 +22,133 @@ header {
 
 #title {
     color: white;
-    font-size: 2.5rem; /* Tamaño grande para resaltar */
+    font-size: 2.5rem;
     font-weight: bold;
     margin: 0;
     padding-left: 1rem;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    padding: 0;
+/* Navegación */
+nav {
+    margin: 20px 0;
 }
 
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a, nav ul li button {
+nav a {
     text-decoration: none;
     color: white;
     background-color: #339af0; /* Azul claro */
     padding: 0.5rem 1rem;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease; /* Transición suave */
-}
-
-nav ul li button:hover, nav ul li a:hover {
-    background-color: #00509e; /* Azul oscuro */
-    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
-}
-
-main {
-    padding: 2rem;
-}
-
-.recetas-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-    gap: 2rem;
-    margin: 0; /* Sin márgenes para ocupar todo el espacio */
-    justify-items: center; /* Centra las fichas horizontalmente */
-}
-
-article.receta {
-    border: 1px solid #00509e;
-    padding: 1.2rem;
-    border-radius: 8px;
-    background-color: #f0f8ff; /* Azul muy claro */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto; /* Ajustar la altura automáticamente */
-    transition: transform 0.3s ease; /* Transición suave */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    display: inline-block;
     cursor: pointer;
-    text-align: center; /* Centrar texto */
 }
 
-article.receta img {
-    width: 80%; /* Tamaño más pequeño para la imagen */
+nav a:hover {
+    background-color: #00509e; /* Azul oscuro */
+    transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+}
+
+/* Contenedor de recetas */
+.recetas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+.receta {
+    border: 1px solid #00509e;
+    border-radius: 8px;
+    padding: 1rem;
+    width: calc(50% - 20px); /* Dos recetas por fila con espacio entre ellas */
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: transform 0.2s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.receta img {
+    width: 80%; /* Ajuste para que las imágenes sean más pequeñas y centradas */
     height: auto;
-    object-fit: cover; /* Ajusta la imagen */
+    object-fit: cover;
     border-radius: 8px;
     margin-bottom: 1rem; /* Espacio debajo de la imagen */
 }
 
-article.receta:hover {
-    transform: translateY(-10px); /* Desplazamiento hacia arriba al pasar el mouse */
+.receta:hover {
+    transform: scale(1.05);
 }
 
+/* Contenido centrado en las recetas */
+.receta h3, .receta p {
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilos para el área de menú diario */
+.dia {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 15px auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    width: 90%;
+    max-width: 600px;
+}
+
+.dia h3 {
+    color: #00509e;
+    margin-top: 0;
+}
+
+/* Estilos de botones (incluye el botón de 'Regresar') */
+button, nav a {
+    background-color: #339af0; /* Azul claro */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+button:hover, nav a:hover {
+    background-color: #00509e; /* Azul oscuro */
+    transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+}
+
+#comentarios {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 300px;
+    z-index: 1000;
+}
+
+#comentarios h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #00509e;
+}
+
+#comentarios-list {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+/* Estilos para modal (si se requiere) */
 .modal {
     display: none; /* Oculto por defecto */
     position: fixed;
@@ -109,10 +167,13 @@ article.receta:hover {
     color: #00509e;
 }
 
+/* Estilos del pie de página */
 footer {
     background-color: #f8f8f8;
     padding: 1rem;
     text-align: center;
+    font-size: 0.9rem;
+    color: #333;
 }
 
 .rating {
@@ -129,17 +190,82 @@ footer {
 .star.selected {
     color: #FFD700; /* Color dorado */
 }
-
-button#regresar {
-    background-color: #ff6961; /* Color para el botón de regresar */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Estilos para la sección de imágenes en las comidas */
+.imagenes-receta {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
-button#regresar:hover {
-    background-color: #e60000; /* Color más oscuro al pasar el mouse */
+.imagenes-receta img {
+    width: 45%; /* Ajustar el ancho de las imágenes para que quepan dos */
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Estilos para el botón de regresar */
+button {
+    background-color: #339af0; /* Azul claro */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #00509e; /* Azul oscuro */
+    transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+}
+/* Estilos para la sección de comentarios */
+#comentarios-section {
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
+}
+
+#comentario-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#comentarios-list p {
+    background-color: #f0f8ff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* Estilos para la puntuación */
+.rating {
+    display: flex;
+    gap: 5px;
+    font-size: 2rem;
+    justify-content: center;
+}
+
+.star {
+    cursor: pointer;
+    color: gray;
+    transition: color 0.3s;
+}
+
+.star.selected {
+    color: #FFD700; /* Dorado */
+}
+
+#rating-result {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
 }
